@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
     sylhet(),
     rajshahi(),
   ];
-  void OpenDrawer(){
+  void OpenDrawer() {
     setState(() {
       xOffset = 250;
       yOffset = 150;
@@ -31,14 +31,16 @@ class _HomePageState extends State<HomePage> {
       isDrawerOpen = true;
     });
   }
-   void CloseDrawer(){
-   setState(() {
+
+  void CloseDrawer() {
+    setState(() {
       xOffset = 0;
       yOffset = 0;
       scaleFactor = 1;
       isDrawerOpen = false;
-   });
-   }
+    });
+  }
+
   double xOffset = 0;
   double yOffset = 0;
   double scaleFactor = 1;
@@ -46,24 +48,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         CloseDrawer();
       },
       child: AnimatedContainer(
-
         transform: Matrix4.translationValues(xOffset, yOffset, 0)
           ..scale(scaleFactor),
         duration: Duration(milliseconds: 250),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(isDrawerOpen ? 40 : 0),
             color: Colors.grey[800],
-        boxShadow: [
-          new BoxShadow(
-            color: Colors.grey,
-            blurRadius:8
-          )
-        ]
-        ),
+            boxShadow: [new BoxShadow(color: Colors.grey, blurRadius: 8)]),
 
         child: Column(
           children: [
@@ -89,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.white,
                           ),
                           onPressed: () {
-                           OpenDrawer();
+                            OpenDrawer();
                           },
                         ),
                   SizedBox(
@@ -105,7 +100,9 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Expanded(
               child: Container(
                   padding: EdgeInsets.all(15),
@@ -113,7 +110,6 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
-
                         padding: EdgeInsets.all(1),
                         height: MediaQuery.of(context).size.height * 0.3,
                         decoration: BoxDecoration(
@@ -137,14 +133,15 @@ class _HomePageState extends State<HomePage> {
                                 "BD Tourist Helpline",
                                 style: GoogleFonts.pacifico(
                                     fontSize: 30,
-                                    color: Colors.white.withOpacity(0.8)),
+                                    color: Colors.white.withOpacity(0.7)),
                               ),
                               SizedBox(
                                 height: 30,
                               ),
                               Container(
                                 margin: EdgeInsets.symmetric(horizontal: 40),
-                                height: MediaQuery.of(context).size.height * 0.0711,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.0711,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     color: Colors.white.withOpacity(0.5)),
@@ -152,7 +149,7 @@ class _HomePageState extends State<HomePage> {
                                   child: Padding(
                                     padding: const EdgeInsets.only(top: 4),
                                     child: Text(
-                                      "বিভাগ ",
+                                      "Raju",
                                       style: GoogleFonts.lalezar(
                                           color: Colors.white.withOpacity(0.9),
                                           fontSize: 27,
@@ -168,63 +165,70 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20,),
-                      Expanded(
-
-                        child: Container(child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                          crossAxisSpacing: 10,
-                         mainAxisSpacing: 7
-                        ),
-                          itemCount: divisons.length,
-                          itemBuilder: (context,index){
-                          return GestureDetector(
-                            onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => _ItemScreen[index],));
-                            },
-                            child: Card(
-                              color: Colors.transparent,
-                              elevation: 0,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  image: DecorationImage(
-                                    image: AssetImage(divisons[index].image),
-                                    fit: BoxFit.fill,
-                                  )
-                                ),
-                              child: Center(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: <Widget>[
-                                    Text(
-                                      divisons[index].title,
-                                      style: new TextStyle(
-                                          fontSize: 28,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    SizedBox(
-                                      height: 30,
-                                    ),
-                                    SpinKitThreeInOut(
-                                      color: Colors.grey[900],
-                                      size: 40,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              ),
-                            ),
-                          );
-                          })),
+                      SizedBox(
+                        height: 20,
                       ),
-
+                      Expanded(
+                        child: Container(
+                            child: GridView.builder(
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 2,
+                                        crossAxisSpacing: 10,
+                                        mainAxisSpacing: 7),
+                                itemCount: divisons.length,
+                                itemBuilder: (context, index) {
+                                  return GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                _ItemScreen[index],
+                                          ));
+                                    },
+                                    child: Card(
+                                      color: Colors.transparent,
+                                      elevation: 0,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                  divisons[index].image),
+                                              fit: BoxFit.fill,
+                                            )),
+                                        child: Center(
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: <Widget>[
+                                              Text(
+                                                divisons[index].title,
+                                                style: new TextStyle(
+                                                    fontSize: 28,
+                                                    color: Colors.white,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                              SizedBox(
+                                                height: 30,
+                                              ),
+                                              SpinKitThreeInOut(
+                                                color: Colors.grey[900],
+                                                size: 40,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                })),
+                      ),
                     ],
-
-                  )
-              ),
-
+                  )),
             ),
           ],
         ),
@@ -375,7 +379,6 @@ class _HomePageState extends State<HomePage> {
         //     ),
         //   ),
         // ),
-
       ),
     );
   }
