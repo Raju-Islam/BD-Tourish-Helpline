@@ -1,4 +1,5 @@
-import 'package:bd_tourist_helpline/Division_Model/dart/Division.dart';
+
+import 'package:bd_tourist_helpline/division_model/division.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
