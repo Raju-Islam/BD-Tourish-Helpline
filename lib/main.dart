@@ -16,6 +16,7 @@ void main(){
     ScreenUtilInit(
       builder: ()=>
        MaterialApp(
+        
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),
       ),
